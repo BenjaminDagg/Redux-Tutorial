@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import TodoItem from '../TodoItem/index';
 
 class List extends Component {
@@ -9,10 +8,10 @@ class List extends Component {
     }
 
     render() {
-
+        var self = this;
         var list = this.props.todos.map((todo, index) => {
 
-            return (<TodoItem key={index} todo={todo} index={index}></TodoItem>);
+            return (<TodoItem key={index} todo={todo} index={index} onClick={() => this.props.toggleTodo(index)}></TodoItem>);
         });
 
         return(
@@ -24,8 +23,4 @@ class List extends Component {
 
 }
 
-const mapStateToProps = state => {
-    return { todos: state.todos};
-};
-
-export default connect(mapStateToProps)(List);
+export default (List);

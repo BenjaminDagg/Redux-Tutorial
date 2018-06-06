@@ -1,29 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { toggleTodo } from "../../actions";
 
-const mapDispatchToProps = dispatch => {
-    return {
-        toggleTodo: index => {
-            dispatch(toggleTodo(index));
-        }
-
-    };
-};
 
 class TodoItem extends Component {
 
     constructor(props) {
         super(props);
 
-        this.toggleStatus = this.toggleStatus.bind(this);
     }
 
-
-
-    toggleStatus() {
-        this.props.toggleTodo(this.props.index);
-    }
 
     render() {
 
@@ -41,10 +25,11 @@ class TodoItem extends Component {
         };
 
         return(
+
             <div style={todoStyle}>
                 <span>{this.props.index + 1}</span>
                 <span style={todoText}>{this.props.todo.text}</span>
-                <button onClick={this.toggleStatus}>Complete</button>
+                <button onClick={this.props.onClick}>Complete</button>
             </div>
         );
     }
@@ -52,4 +37,4 @@ class TodoItem extends Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(TodoItem);
+export default TodoItem;

@@ -50,14 +50,5 @@ class Form extends Component {
 
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addTodo: text => {
-            dispatch(addTodo(text))
-        }
-    };
-};
 
-
-
-export default connect(null, mapDispatchToProps)(Form);
+export default Form;
