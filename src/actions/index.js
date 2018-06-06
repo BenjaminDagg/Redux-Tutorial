@@ -12,7 +12,7 @@ export function addTodo(text) {
     return {
         type: ADD_TODO,
         text: text
-    }
+    };
 }
 
 /* Creates TOGGLE_STATUS action which
@@ -25,5 +25,5 @@ export function toggleTodo(index) {
     return {
         type: TOGGLE_STATUS,
         index: index
-    }
+    };
 }
